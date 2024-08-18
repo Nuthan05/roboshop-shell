@@ -5,7 +5,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-MONGDB_HOST=mongodb.daws76s.online
+MONGDB_HOST=mongodb.practicedevopsproject.online
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
@@ -69,7 +69,7 @@ npm install  &>> $LOGFILE
 
 VALIDATE $? "Installing dependencies"
 
-cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service
+cp /root/roboshop-shell/user.service /etc/systemd/system/user.service
 
 VALIDATE $? "Copying user service file"
 
@@ -85,7 +85,7 @@ systemctl start user &>> $LOGFILE
 
 VALIDATE $? "Starting user"
 
-cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
 VALIDATE $? "copying mongodb repo"
 

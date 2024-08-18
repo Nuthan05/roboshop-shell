@@ -35,11 +35,11 @@ dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 
 VALIDATE $? "Installing Remi release"
 
-dnf module enable redis:remi-6.2 -y
+dnf module enable redis:remi-6.2 -y &>> $LOGFILE
 
 VALIDATE $? "enabling redis"
 
-dnf install redis -y
+dnf install redis -y &>> $LOGFILE
 
 VALIDATE $? "Installing Redis"
 
@@ -47,10 +47,10 @@ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
 
 VALIDATE $? "allowing remote connections"
 
-systemctl enable redis
-
+systemctl enable redis &>> $LOGFILE
+ 
 VALIDATE $? "Enabled Redis"
 
-systemctl start redis
+systemctl start redis &>> $LOGFILE
 
 VALIDATE $? "Started Redis"

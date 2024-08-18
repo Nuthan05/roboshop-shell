@@ -84,9 +84,9 @@ dnf install mysql -y &>> $LOGFILE
 
 VALIDATE $? "install MySQL client"
 
-mysql -h mysql.practicedevopsproject.online -uroot -pRoboShop@1 < /app/schema/shipping.sql &>> $LOGFILE
+mysql -h mysql.practicedevopsproject.online -uroot -pRoboShop@1 < /app/schema/shipping.sql 2>&1 | tee -a $LOGFILE
 
-VALIDATE $? "loading shipping data"
+VALIDATE $? "Loading shipping data into MySQL"
 
 systemctl restart shipping &>> $LOGFILE
 

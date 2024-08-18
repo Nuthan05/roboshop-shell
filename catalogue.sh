@@ -96,6 +96,6 @@ VALIDATE $? "Installing MongoDB client"
 
 mongo --host $MONGDB_HOST </app/schema/catalogue.js &>> $LOGFILE
 
-VALIDATE $? "Loading catalouge data into MongoDB"
+VALIDATE $? "Loading catalouge data into MongoDB
 
 
